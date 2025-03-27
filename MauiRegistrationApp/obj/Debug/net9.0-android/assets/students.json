@@ -1,0 +1,57 @@
+[
+    {
+        "studentId": "S12345",
+        "email": "john.doe@email.com",
+        "password": "password123",
+        "firstName": "John",
+        "lastName": "Doe",
+        "age": 20,
+        "phoneNumber": "0123456789",
+        "address": "123 Main Street, Cityville",
+        "profilePicture": "https://example.com/images/john_doe.jpg"
+    },
+    {
+        "studentId": "S67890",
+        "email": "jane.smith@email.com",
+        "password": "securepass456",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "age": 22,
+        "phoneNumber": "0987654321",
+        "address": "456 Elm Road, Townsville",
+        "profilePicture": "https://example.com/images/jane_smith.jpg"
+    },
+    {
+        "studentId": "S11223",
+        "email": "mike.jones@email.com",
+        "password": "mikepassword789",
+        "firstName": "Mike",
+        "lastName": "Jones",
+        "age": 21,
+        "phoneNumber": "0132465789",
+        "address": "789 Pine Avenue, Villageburg",
+        "profilePicture": "https://example.com/images/mike_jones.jpg"
+    },
+    {
+        "studentId": "S44556",
+        "email": "lucy.williams@email.com",
+        "password": "lucysecure001",
+        "firstName": "Lucy",
+        "lastName": "Williams",
+        "age": 23,
+        "phoneNumber": "0765432109",
+        "address": "321 Oak Lane, Suburbia",
+        "profilePicture": "https://example.com/images/lucy_williams.jpg"
+    },
+    {
+        "studentId": "S78901",
+        "email": "alex.brown@email.com",
+        "password": "alexpass987",
+        "firstName": "Alex",
+        "lastName": "Brown",
+        "age": 24,
+        "phoneNumber": "0612345789",
+        "address": "987 Maple Drive, Countryside",
+        "profilePicture": "https://example.com/images/alex_brown.jpg"
+    }
+]

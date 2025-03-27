@@ -469,3 +469,7 @@ C:\BossanzWorks\Maui-project\MauiRegistrationApp\obj\Debug\net9.0-windows10.0.19
 C:\BossanzWorks\Maui-project\MauiRegistrationApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\qualifiers.txt
 C:\BossanzWorks\Maui-project\MauiRegistrationApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\BossanzWorks\Maui-project\MauiRegistrationApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
+C:\BossanzWorks\Maui-project\MauiRegistrationApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MauiRegistrationApp.sourcelink.json
+C:\BossanzWorks\Maui-project\MauiRegistrationApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Newtonsoft.Json.dll
+C:\BossanzWorks\Maui-project\MauiRegistrationApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Mvvm.dll
+C:\BossanzWorks\Maui-project\MauiRegistrationApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\mockdata.json
