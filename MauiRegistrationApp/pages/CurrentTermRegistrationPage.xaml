@@ -11,13 +11,13 @@
         <BoxView>
             <BoxView.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#FFD700" Offset="0.0"/>
+                    <GradientStop Color="#27548A" Offset="0.0"/>
                     <GradientStop Color="#f0f0f0" Offset="0.6"/>
                     <GradientStop Color="#777777" Offset="1.0"/>
                 </LinearGradientBrush>
             </BoxView.Background>
         </BoxView>
-        <BoxView Color="#FFD700" Opacity="0.3" HeightRequest="200" WidthRequest="200"
+        <BoxView Color="#27548A" Opacity="0.3" HeightRequest="200" WidthRequest="200"
                  HorizontalOptions="End" VerticalOptions="Start" CornerRadius="100" Margin="-50,-50,0,0"/>
         <BoxView Color="#666666" Opacity="0.4" HeightRequest="150" WidthRequest="150"
                  HorizontalOptions="Start" VerticalOptions="End" CornerRadius="75" Margin="-30,0,0,-30"/>
@@ -30,13 +30,11 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Text="← กลับ" BackgroundColor="#FFD700" TextColor="#333333"
+                    <Button Grid.Column="0" Text="← กลับ" BackgroundColor="#27548A" TextColor="white"
                             HeightRequest="40" WidthRequest="90" FontSize="14" CornerRadius="20" VerticalOptions="Center"
                             Clicked="OnClickedHome"/>
                     <Label Grid.Column="1" Text="การลงทะเบียนเทอมปัจจุบัน" FontSize="20" FontAttributes="Bold"
-                           TextColor="#333333" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <Button Grid.Column="2" Text="ส่งออก PDF" BackgroundColor="#666666" TextColor="White"
-                            HeightRequest="40" WidthRequest="110" FontSize="14" CornerRadius="20" VerticalOptions="Center"/>
+                           TextColor="white" HorizontalOptions="Center" VerticalOptions="Center"/>
                 </Grid>
 
                 <!-- Term Information Card -->
@@ -95,7 +93,7 @@
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="model:CurrentSemesterSubject">
                                         <ViewCell>
-                                            <Frame BorderColor="#FFD700" BackgroundColor="White" CornerRadius="10"
+                                            <Frame BorderColor="#27548A" BackgroundColor="White" CornerRadius="10"
                                                    Padding="15" Margin="0,10,0,10" HasShadow="False">
                                                 <Grid RowSpacing="8">
                                                     <Grid.RowDefinitions>
@@ -109,7 +107,7 @@
                                                             <ColumnDefinition Width="Auto"/>
                                                         </Grid.ColumnDefinitions>
                                                         <HorizontalStackLayout Grid.Column="0" Spacing="10">
-                                                            <BoxView Color="#FFD700" WidthRequest="5" VerticalOptions="Fill"
+                                                            <BoxView Color="#27548A" WidthRequest="5" VerticalOptions="Fill"
                                                                      HeightRequest="30" CornerRadius="2"/>
                                                             <VerticalStackLayout VerticalOptions="Center">
                                                                 <Label Text="{Binding Id}" FontSize="16" FontAttributes="Bold"

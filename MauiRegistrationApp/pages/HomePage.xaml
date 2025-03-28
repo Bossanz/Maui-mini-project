@@ -6,12 +6,12 @@
              x:DataType="viewmodel:ShowDataStudent"
              Title="หน้าหลัก">
        <Grid>
-              <!-- Background with yellow and gray gradient (เหมือนกับหน้า Login) -->
+              <!-- Background with blue and gray gradient (เหมือนกับหน้า Login) -->
               <BoxView>
                      <BoxView.Background>
                             <LinearGradientBrush StartPoint="0,0"
                                                  EndPoint="0,1">
-                                   <GradientStop Color="#FFD700"
+                                   <GradientStop Color="#27548A"
                                                  Offset="0.0"/>
                                    <GradientStop Color="#f0f0f0"
                                                  Offset="0.6"/>
@@ -22,7 +22,7 @@
               </BoxView>
 
               <!-- Decorative elements (เหมือนกับหน้า Login) -->
-              <BoxView Color="#FFD700"
+              <BoxView Color="#27548A"
                        Opacity="0.3"
                        HeightRequest="200"
                        WidthRequest="200"
@@ -49,11 +49,13 @@
                                           <ColumnDefinition Width="Auto"/>
                                           <ColumnDefinition Width="*"/>
                                           <ColumnDefinition Width="Auto"/>
+                                          <ColumnDefinition Width="Auto"/>
+                                          <!-- เพิ่มคอลัมน์ที่ 4 หากจำเป็น -->
                                    </Grid.ColumnDefinitions>
 
                                    <!-- Logo -->
                                    <Image Grid.Column="0"
-                                          Source="app_logo.png"
+                                          Source="logo_it_stock.png"
                                           HeightRequest="60"
                                           WidthRequest="60"
                                           VerticalOptions="Center"/>
@@ -62,24 +64,43 @@
                                    <VerticalStackLayout Grid.Column="1"
                                                         VerticalOptions="Center"
                                                         Margin="15,0">
-                                          <!-- Welcome Message -->
-                                          <Label x:Name="WelcomeLabel"
-                                                 Text="{Binding User.Student.Profile.Firstname, StringFormat='ยินดีต้อนรับ, {0}'}"
-                                                 FontSize="22"
-                                                 FontAttributes="Bold"
-                                                 TextColor="#333333"/>
+                                          <HorizontalStackLayout>
+                                                 <Label
+                                                        Text="ยินดีต้อนรับ"
+                                                        FontSize="22"
+                                                        FontAttributes="Bold"
+                                                        TextColor="white"/>
+                                                 <Label x:Name="WelcomeLabel"
+                                                        Text="{Binding User.Student.Profile.Firstname, StringFormat=' {0}'}"
+                                                        FontSize="22"
+                                                        FontAttributes="Bold"
+                                                        TextColor="#DDA853"/>
+                                          </HorizontalStackLayout>
+
                                           <Label x:Name="StudentIdLabel"
                                                  Text="{Binding User.Student.Id, StringFormat='รหัสนิสิต : {0}'}"
                                                  FontSize="14"
-                                                 TextColor="#555555"/>
+                                                 TextColor="white"/>
                                    </VerticalStackLayout>
 
-
+                                   <!-- Profile Details Button -->
+                                   <Button Grid.Column="2"
+                                           Text="ดูข้อมูลโปรไฟล์"
+                                           BackgroundColor="#27548A"
+                                           TextColor="white"
+                                           CornerRadius="20"
+                                           FontSize="13"
+                                           HeightRequest="38"
+                                           HorizontalOptions="Start"
+                                           Margin="0,0,10,0"
+                                           FontAttributes="Bold"
+                                           WidthRequest="150"
+                                           Clicked="OnDetailsClickedProfile"/>
 
                                    <!-- Logout Button -->
-                                   <Button Grid.Column="2"
+                                   <Button Grid.Column="3"
                                            Text="ออกจากระบบ"
-                                           BackgroundColor="#666666"
+                                           BackgroundColor="red"
                                            TextColor="White"
                                            HeightRequest="40"
                                            WidthRequest="110"
@@ -89,89 +110,16 @@
                                            Clicked="OnClickedLogin"/>
                             </Grid>
 
-                            <!-- Profile Card -->
-                            <Frame BorderColor="#CCCCCC"
-                                   CornerRadius="15"
-                                   Padding="15"
-                                   HasShadow="True"
-                                   BackgroundColor="#FFFFEE"
-                                   Opacity="0.95"
-                                   Margin="0,5,0,10">
-                                   <Grid>
-                                          <Grid.ColumnDefinitions>
-                                                 <ColumnDefinition Width="Auto"/>
-                                                 <ColumnDefinition Width="*"/>
-                                          </Grid.ColumnDefinitions>
-
-                                          <!-- Profile Image -->
-                                          <Frame Grid.Column="0"
-                                                 BorderColor="#FFD700"
-                                                 CornerRadius="50"
-                                                 HeightRequest="100"
-                                                 WidthRequest="100"
-                                                 Padding="0"
-                                                 IsClippedToBounds="True"
-                                                 HorizontalOptions="Center"
-                                                 VerticalOptions="Center">
-                                                 <Image Source="{Binding User.Student.Profile.ProfileImage}"
-                                                        Aspect="AspectFill"
-                                                        HeightRequest="100"
-                                                        WidthRequest="100"/>
-                                          </Frame>
-
-                                          <!-- Profile Info -->
-                                          <VerticalStackLayout Grid.Column="1"
-                                                               Margin="15,0,0,0"
-                                                               Spacing="8">
-                                                 <StackLayout Orientation="Horizontal"
-                                                               Spacing="6">
-                                                        <Label Text="{Binding User.Student.Profile.Firstname}"
-                                                               FontSize="18"
-                                                               FontAttributes="Bold"
-                                                               TextColor="#333333"/>
-                                                        <Label Text="{Binding User.Student.Profile.Lastname}"
-                                                               FontSize="18"
-                                                               FontAttributes="Bold"
-                                                               TextColor="#333333"/>
-                                                 </StackLayout>
-                                                 <Label x:Name="FacultyLabel"
-                                                        Text="{Binding User.Student.Profile.Faculty}"
-                                                        FontSize="15"
-                                                        TextColor="#555555"/>
-                                                 <Label x:Name="MajorLabel"
-                                                        Text="{Binding User.Student.Profile.Department}"
-                                                        FontSize="15"
-                                                        TextColor="#555555"/>
-                                                 <Label x:Name="YearLabel"
-                                                        Text="{Binding User.Student.Profile.Year, StringFormat='ชั้นปีที่ : {0}'}"
-                                                        FontSize="15"
-                                                        TextColor="#555555"/>
-
-                                                 <!-- View Profile Button -->
-                                                 <Button Text="ดูข้อมูลโปรไฟล์"
-                                                         BackgroundColor="#FFD700"
-                                                         TextColor="#333333"
-                                                         CornerRadius="20"
-                                                         FontSize="13"
-                                                         HeightRequest="38"
-                                                         HorizontalOptions="Start"
-                                                         Margin="0,5,0,0"
-                                                         FontAttributes="Bold"
-                                                         WidthRequest="150"
-                                                         Clicked="OnDetailsClickedProfile"/>
-                                          </VerticalStackLayout>
-                                   </Grid>
-                            </Frame>
 
                             <!-- Main Menu Cards -->
                             <Label Text="เมนูลงทะเบียน"
                                    FontSize="18"
                                    FontAttributes="Bold"
-                                   TextColor="#333333"
+                                   TextColor="#DDA853"
                                    Margin="5,0,0,5"/>
 
-                            <Grid ColumnSpacing="15"
-                                  RowSpacing="15">
+                            <Grid ColumnSpacing="7"
+                                  RowSpacing="7">
                                    <Grid.RowDefinitions>
                                           <RowDefinition Height="Auto"/>
                                           <RowDefinition Height="Auto"/>
@@ -185,13 +133,13 @@
                                    <Frame Grid.Row="0"
                                           Grid.Column="0"
                                           BorderColor="#CCCCCC"
-                                          CornerRadius="12"
+                                          CornerRadius="5"
                                           Padding="15"
                                           HasShadow="True"
                                           BackgroundColor="#FFFFEE"
                                           Opacity="0.95">
                                           <VerticalStackLayout Spacing="10">
-                                                 <Image Source="current_term_icon.png"
+                                                 <Image Source="term.png"
                                                         HeightRequest="60"
                                                         HorizontalOptions="Center"/>
                                                  <Label Text="ข้อมูลลงทะเบียน&#10;เทอมปัจจุบัน"
@@ -206,8 +154,8 @@
                                                         TextColor="#555555"
                                                         HorizontalOptions="Center"/>
                                                  <Button Text="ดูรายละเอียด"
-                                                         BackgroundColor="#FFD700"
-                                                         TextColor="#333333"
+                                                         BackgroundColor="#27548A"
+                                                         TextColor="white"
                                                          CornerRadius="20"
                                                          FontSize="13"
                                                          HeightRequest="40"
@@ -220,13 +168,13 @@
                                    <Frame Grid.Row="0"
                                           Grid.Column="1"
                                           BorderColor="#CCCCCC"
-                                          CornerRadius="12"
+                                          CornerRadius="5"
                                           Padding="15"
                                           HasShadow="True"
                                           BackgroundColor="#FFFFEE"
                                           Opacity="0.95">
                                           <VerticalStackLayout Spacing="10">
-                                                 <Image Source="previous_term_icon.png"
+                                                 <Image Source="past.png"
                                                         HeightRequest="60"
                                                         HorizontalOptions="Center"/>
                                                  <Label Text="ข้อมูลลงทะเบียน&#10;เทอมก่อนหน้า"
@@ -240,8 +188,8 @@
                                                         TextColor="#555555"
                                                         HorizontalOptions="Center"/>
                                                  <Button Text="ดูประวัติ"
-                                                         BackgroundColor="#FFD700"
-                                                         TextColor="#333333"
+                                                         BackgroundColor="#27548A"
+                                                         TextColor="white"
                                                          CornerRadius="20"
                                                          FontSize="13"
                                                          HeightRequest="40"
@@ -254,13 +202,13 @@
                                    <Frame Grid.Row="1"
                                           Grid.Column="0"
                                           BorderColor="#CCCCCC"
-                                          CornerRadius="12"
+                                          CornerRadius="5"
                                           Padding="15"
                                           HasShadow="True"
                                           BackgroundColor="#FFFFEE"
                                           Opacity="0.95">
                                           <VerticalStackLayout Spacing="10">
-                                                 <Image Source="search_course_icon.png"
+                                                 <Image Source="audit.png"
                                                         HeightRequest="60"
                                                         HorizontalOptions="Center"/>
                                                  <Label Text="ค้นหาและ&#10;ลงทะเบียนรายวิชา"
@@ -276,8 +224,8 @@
                                                         FontAttributes="Bold"
                                                         HorizontalOptions="Center"/>
                                                  <Button Text="ลงทะเบียนเรียน"
-                                                         BackgroundColor="#FFD700"
-                                                         TextColor="#333333"
+                                                         BackgroundColor="#27548A"
+                                                         TextColor="white"
                                                          CornerRadius="20"
                                                          FontSize="13"
                                                          HeightRequest="40"
@@ -290,13 +238,13 @@
                                    <Frame Grid.Row="1"
                                           Grid.Column="1"
                                           BorderColor="#CCCCCC"
-                                          CornerRadius="12"
+                                          CornerRadius="5"
                                           Padding="15"
                                           HasShadow="True"
                                           BackgroundColor="#FFFFEE"
                                           Opacity="0.95">
                                           <VerticalStackLayout Spacing="10">
-                                                 <Image Source="withdraw_course_icon.png"
+                                                 <Image Source="wd.png"
                                                         HeightRequest="60"
                                                         HorizontalOptions="Center"/>
                                                  <Label Text="ถอนรายวิชา&#10;ลงทะเบียน"
@@ -312,8 +260,8 @@
                                                         FontAttributes="Bold"
                                                         HorizontalOptions="Center"/>
                                                  <Button Text="ถอนรายวิชา"
-                                                         BackgroundColor="#FFD700"
-                                                         TextColor="#333333"
+                                                         BackgroundColor="#27548A"
+                                                         TextColor="white"
                                                          CornerRadius="20"
                                                          FontSize="13"
                                                          HeightRequest="40"
@@ -346,8 +294,8 @@
                                                  </Grid.ColumnDefinitions>
 
                                                  <Frame Grid.Column="0"
-                                                        BorderColor="#FFD700"
-                                                        BackgroundColor="#FFD700"
+                                                        BorderColor="#27548A"
+                                                        BackgroundColor="#27548A"
                                                         CornerRadius="25"
                                                         HeightRequest="50"
                                                         WidthRequest="50"
@@ -356,7 +304,7 @@
                                                         <Label Text="!"
                                                                FontSize="28"
                                                                FontAttributes="Bold"
-                                                               TextColor="#333333"
+                                                               TextColor="white"
                                                                HorizontalOptions="Center"
                                                                VerticalOptions="Center"/>
                                                  </Frame>
@@ -388,8 +336,8 @@
                                                  </Grid.ColumnDefinitions>
 
                                                  <Frame Grid.Column="0"
-                                                        BorderColor="#FFD700"
-                                                        BackgroundColor="#FFD700"
+                                                        BorderColor="#27548A"
+                                                        BackgroundColor="#27548A"
                                                         CornerRadius="25"
                                                         HeightRequest="50"
                                                         WidthRequest="50"
@@ -398,7 +346,7 @@
                                                         <Label Text="!"
                                                                FontSize="28"
                                                                FontAttributes="Bold"
-                                                               TextColor="#333333"
+                                                               TextColor="white"
                                                                HorizontalOptions="Center"
                                                                VerticalOptions="Center"/>
                                                  </Frame>
